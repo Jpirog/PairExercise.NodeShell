@@ -4,8 +4,6 @@ module.exports = function (done) {
     if (err) {
       throw err;}
     done(files.join('\n'));
-//    process.stdout.write(files.join('\n'))
-    process.stdout.write("\nprompt > ");
   })
 
 };

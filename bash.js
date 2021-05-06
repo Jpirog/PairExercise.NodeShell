@@ -31,5 +31,5 @@ process.stdin.on('data', (data) => {
       process.stdout.write('You typed: ' + cmd);
   } // end switch
 
-  process.stdout.write(`\nprompt > `);
+  //process.stdout.write(`\nprompt > `);
 });
