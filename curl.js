@@ -1,18 +1,13 @@
 
-module.exports = function (url) {
-  console.log('in curl', url);
+module.exports = function (url, done) {
   const request = require('request')
-  request(url, { json: true }, (err, res, body) => {
+  request(url, (err, res, body) => {
     if (err) { 
-      console.log('error');
-      return console.log(err); 
+      done(`Error - ${err.toString().substr(0,100)}`);
     }
     else {
-      console.log('it worked!')
-      console.log("First 500 characters:\n");
-      console.log(body.substr(0,500))
-      }
-      process.stdout.write("\nprompt > ");
+      done(`Success - First 500 characters:\n ${body.substr(0,500)}`);
+    }
 });
 
 };

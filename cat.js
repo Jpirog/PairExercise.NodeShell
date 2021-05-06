@@ -1,11 +1,10 @@
-module.exports = function(file) {
+module.exports = function(file, done) {
   const fs = require('fs');
-  console.log(fs.readFile(file, (err, result) => {
-      if (err) {
-          console.error(err)
-          return
-      }
-      console.log(result.toString());
-      process.stdout.write("\nprompt > ");
-  }));
+  fs.readFile(file, (err, result) => {
+    if (err) {
+      done(`${file} does not exist`)
+    }else {
+      done(result.toString());
+    }
+  });
 }
